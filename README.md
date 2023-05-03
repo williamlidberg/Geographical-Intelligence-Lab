@@ -34,7 +34,7 @@ This command should generate a bunch of text. Look for two URLs near the bottom 
 
 The next step is to open your terminal on your laptop (cmd on windows) and ssh into the open port on the remote server. Note that your server username is required and you have to log in with your password. The ip address should be the address to the remote server. for example lidar1-1.ad.slu.se
 
-ssh -L 8886:localhost:8886 wmli0001@lidar1-1.ad.slu.se
+        ssh -L 8886:localhost:8886 wmli0001@lidar1-1.ad.slu.se
 
 Awnser yes to the first question when asked. The next promt is for your password to that server. Once logged in you can now access jupyterlab from your browser using the IP address and the portnumber. Paste this in your browser and a window will apear asking for you to set a password. This is where you need the URL from before. 
 
