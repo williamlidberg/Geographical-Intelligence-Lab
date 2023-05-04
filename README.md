@@ -21,9 +21,9 @@ The docker image is the blueprint for the actual docker container. It can be sta
 
         docker run -it --rm -p 8886:8886 --gpus all -v /mnt/Extension_100TB/William/GitHub/Geographical-Intelligence-Lab/:/workspace/lab notebook:latest bash
 
-By default the notebook will start in a directory inside the container. Lets change that to a volume mapped from the NAS instead.
+By default the notebook will start in a directory inside the container. Lets change that to a volume mapped from the NAS by changing directory.
 
-        jupyter notebook --notebook-dir=/workspace/lab
+        cd /workspace/lab/
 
 # Start a notebook
 Start jupyter labs inside the docker container (When you start a Jupyter notebook you are starting a small web server that your browser connects to) note that the port needs to be the same as above, in this case 8886:
