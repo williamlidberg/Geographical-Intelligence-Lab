@@ -1,7 +1,9 @@
-FROM tensorflow/tensorflow:latest-gpu
-RUN echo "Custom container downloaded!"
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 
-RUN pip install jupyterlab
 RUN pip install whitebox
 RUN pip install geopandas
 RUN pip install rasterio
+
+
+ENTRYPOINT ["bash"]
+CMD ["bash"]
