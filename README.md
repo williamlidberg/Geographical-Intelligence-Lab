@@ -31,7 +31,7 @@ The docker image is the blueprint for the actual docker container. It can be sta
 
         docker run -it notebook bash
 
-We want to pass some arguments in order to connect to storage and forward a port. The port forwarding is used to enable us to reach the notebook that is running within the container from our laptops. Note that the port 8886 is used here but you can choose something like 8885, 8887 8888, 8889 instead if your selected number is already taken. --gpus all will anable us to use the GPU within the cotnainer and the -v command is used to map a directory on the NAS to a directory inside the cotnainer. Since we want to run this in the background we can start a screen session before starting the container.
+We want to pass some arguments in order to connect to storage and forward a port. The port forwarding is used to enable us to reach the notebook that is running within the container from our laptops. Note that the port 8886 is used here but you can choose something like 8885, 8887 8888, 8889 instead if your selected number is already taken. --gpus all will anable us to use the GPU within the cotnainer and the -v command is used to map a directory on the NAS to a directory inside the cotainer. Since we want to run this in the background we can start a screen session before starting the container.
 
         screen -S notebook
 
@@ -70,8 +70,24 @@ Log in using the password you set above. Congratualtions, you have now set up ju
 
 
 # Docker compose
+Docker Compose is a tool that lets you define and run multi-container Docker environments using a single configuration file. Instead of typing long docker run commands every time
+This file tells Docker:
+which containers to start (services:)
+which image to use
+how ports should be forwarded
+which folders should be mounted inside the container
+any additional settings (restart policies, GPU access, environment variables, etc.)
 
+The docker compose up command will start a container using your settings.
+        docker compose up
 
-Mounting code and data seperatly can be a good idea to avoid having data in the github repo. For example: 
+Here are some useful compose commands:
 
-        docker run -it --rm -p 8887:8887 --gpus all -v /mnt/Extension_100TB/William/GitHub/Remnants-of-charcoal-kilns:/workspace/code -v /mnt/Extension_100TB/William/Projects/Cultural_remains/data:/workspace/data segmentation:latest bash
+| Command | What it does |
+|--------|---------------|
+| `docker compose up` | Starts containers and shows logs |
+| `docker compose up -d` | Starts containers in background |
+| `docker compose stop` | Stops containers but keeps them |
+| `docker compose start` | Restarts stopped containers |
+| `docker compose down` | Stops and removes containers + networks |
+| `docker compose ps` | Shows status of containers |

@@ -1,0 +1,7 @@
+services:
+  geodev:
+    image: notebook:latest
+    ports:
+      - "127.0.0.1:8886:8886"
+    volumes:
+      - /home/training/data:/workspace/data
