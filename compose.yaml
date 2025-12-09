@@ -5,3 +5,7 @@ services:
       - "127.0.0.1:8886:8886"
     volumes:
       - /home/training/data:/workspace/data
+    stdin_open: true
+    tty: true
+
+    entrypoint: ["bash"]
