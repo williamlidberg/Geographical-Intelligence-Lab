@@ -35,12 +35,12 @@ We want to pass some arguments in order to connect to storage and forward a port
 
         screen -S notebook
 
-        docker run -it --rm -p 8886:8886 -v /home/training/data:/workspace/data notebook:latest bash
+        docker run -it --rm -p 8888:8888 -v /home/training/test/:/workspace/code -v /home/training/data:/workspace/data notebook:latest bash
 
 Note that without the bash command the container we have built will start a notebook.
 
 # Start a notebook
-Start jupyter labs inside the docker container (When you start a Jupyter notebook you are starting a small web server that your browser connects to) note that the port needs to be the same as above, in this case 8886:
+Start jupyter labs inside the docker container (When you start a Jupyter notebook you are starting a small web server that your browser connects to) note that the port needs to be the same as above, in this case 8888:
 
 First we need to set a password to reach the notebook
 
@@ -50,21 +50,22 @@ Then we can start the notebook with this command:
 
         jupyter lab \
         --ip=0.0.0.0 \
-        --port=8886 \
+        --port=8888 \
         --allow-root \
         --no-browser \
-        --NotebookApp.allow_origin='*'
+        --NotebookApp.allow_origin='*' \
+        --notebook-dir=/workspace/code
 
 
 The next step is to open your terminal on your laptop (cmd on windows) and ssh into the open port on the remote server. Note that your server username is required and you have to log in with your password. The ip address should be the address to the remote server. for example training.froglich.net
 
-        ssh -L 8886:localhost:8886 training@training.froglich.net
+        ssh -L 8888:localhost:8888 training@training.froglich.net
 
 Awnser yes to the first question when asked.         
 
-        https://training.froglich.net/:8886
+        https://training.froglich.net/:8888
 
-Log in using the password you set above. Congratualtions, you have now set up jupterlab on a remote server using docker! For more information on jupyterlab look here: https://jupyterlab.readthedocs.io/en/stable/ Note that jupyterlab keeps running in the background when you close the browser. Just go to the adress from above http://localhost:8886/ again to get back to jupyterlab. This works from any computer. You can now detach the docker container so it can run in the background on the server.
+Log in using the password you set above. Congratualtions, you have now set up jupterlab on a remote server using docker! For more information on jupyterlab look here: https://jupyterlab.readthedocs.io/en/stable/ Note that jupyterlab keeps running in the background when you close the browser. Just go to the adress from above http://localhost:8888/ again to get back to jupyterlab. This works from any computer. You can now detach the docker container so it can run in the background on the server.
 
         ctrl+a d
 
