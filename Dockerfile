@@ -4,6 +4,3 @@ RUN pip install whitebox
 RUN pip install geopandas
 RUN pip install rasterio
 
-
-ENTRYPOINT ["bash"]
-CMD ["bash"]
