@@ -33,6 +33,8 @@ The docker image is the blueprint for the actual docker container. It can be sta
 
 We want to pass some arguments in order to connect to storage and forward a port. The port forwarding is used to enable us to reach the notebook that is running within the container from our laptops. Note that the port 8886 is used here but you can choose something like 8885, 8887 8888, 8889 instead if your selected number is already taken. --gpus all will anable us to use the GPU within the cotnainer and the -v command is used to map a directory on the NAS to a directory inside the cotainer. Since we want to run this in the background we can start a screen session before starting the container.
 
+        exit
+
         screen -S notebook
 
         docker run -it --rm -p 8888:8888 -v /home/training/test/:/workspace/code -v /home/training/data:/workspace/data notebook:latest bash
