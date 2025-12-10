@@ -65,7 +65,7 @@ The next step is to open your terminal on your laptop (cmd on windows) and ssh i
 
 Awnser yes to the first question when asked.         
 
-        https://training.froglich.net/:8888
+        localhost:8888
 
 Log in using the password you set above. Congratualtions, you have now set up jupterlab on a remote server using docker! For more information on jupyterlab look here: https://jupyterlab.readthedocs.io/en/stable/ Note that jupyterlab keeps running in the background when you close the browser. Just go to the adress from above http://localhost:8888/ again to get back to jupyterlab. This works from any computer. You can now detach the docker container so it can run in the background on the server.
 
